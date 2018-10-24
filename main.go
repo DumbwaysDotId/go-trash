@@ -1,36 +1,31 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"math"
 )
 
 func main() {
-	// //standard forloop
-	// for i := 0; i < 5; i++ {
-	// 	fmt.Println(i)
-	// }
+	result := sum(3, 2)
+	fmt.Println(result)
 
-	// //while loop
-	// i := 0
-	// for i < 5 {
-	// 	fmt.Println(i)
-	// 	i++
-	// }
-
-	// //array range
-	// arr := []int{1, 2}
-
-	// for index, value := range arr {
-	// 	fmt.Println("index", index, "value", value)
-	// }
-
-	//map loop
-	bio := make(map[string]string)
-
-	bio["firstName"] = "Ega"
-	bio["lastName"] = "Radiegtya"
-
-	for key, value := range bio {
-		fmt.Println("key", key, "value", value)
+	sqrtResult, err := sqrt(-2)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(sqrtResult)
 	}
+}
+
+func sum(x int, y int) int {
+	return x + y
+}
+
+func sqrt(num float64) (float64, error) {
+	if num < 0 {
+		return 0, errors.New("should not negative")
+	}
+
+	return math.Sqrt(num), nil
 }
