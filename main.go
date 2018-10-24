@@ -5,14 +5,32 @@ import (
 )
 
 func main() {
-	stock := make(map[string]int)
+	// //standard forloop
+	// for i := 0; i < 5; i++ {
+	// 	fmt.Println(i)
+	// }
 
-	stock["apple"] = 10
-	stock["tomato"] = 12
-	stock["cherry"] = 0
+	// //while loop
+	// i := 0
+	// for i < 5 {
+	// 	fmt.Println(i)
+	// 	i++
+	// }
 
-	delete(stock, "cherry")
+	// //array range
+	// arr := []int{1, 2}
 
-	fmt.Println(stock)
-	fmt.Println(stock["tomato"])
+	// for index, value := range arr {
+	// 	fmt.Println("index", index, "value", value)
+	// }
+
+	//map loop
+	bio := make(map[string]string)
+
+	bio["firstName"] = "Ega"
+	bio["lastName"] = "Radiegtya"
+
+	for key, value := range bio {
+		fmt.Println("key", key, "value", value)
+	}
 }
