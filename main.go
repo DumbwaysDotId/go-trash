@@ -5,20 +5,17 @@ import (
 )
 
 func main() {
-	var x int = 5
-	var y int = 7
-	var sum int = x + y
-	var name string = "Ega"
-	var isLoading bool = false
-	var myFloatNumber float64 = 2.1
+	// //fix length array
+	// var arr [3]int
+	// arr[2] = 2
+	// fmt.Println(arr)
 
-	z := 10
-	address := "south tangerang"
+	// //short hand fix array
+	// arr := [3]int{1, 2, 3}
+	// fmt.Println(arr)
 
-	fmt.Println(sum)
-	fmt.Println(name)
-	fmt.Println(isLoading)
-	fmt.Println(myFloatNumber)
-	fmt.Println(z)
-	fmt.Println(address)
+	//short hand dynamic array
+	arr := []int{1, 2, 3}
+	arr = append(arr, 4)
+	fmt.Println(arr)
 }
