@@ -16,6 +16,13 @@ func handleRequests() {
 	//using gorilla mux
 	r := mux.NewRouter().StrictSlash(true)
 	r.HandleFunc("/", helloWorld).Methods("GET")
+
+	//users endpoint
+	r.HandleFunc("/users", AllUsers).Methods("GET")
+	r.HandleFunc("/user", CreateUser).Methods("POST")
+	r.HandleFunc("/user/{id}", UpdateUser).Methods("PATCH")
+	r.HandleFunc("/user/{id}", DeleteUser).Methods("DELETE")
+
 	log.Fatal(http.ListenAndServe(":8081", r))
 }
 
