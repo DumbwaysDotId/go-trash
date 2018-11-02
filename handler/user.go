@@ -1,34 +1,28 @@
-package main
+package handler
 
 import (
 	"encoding/json"
+	"first-go/db"
+	"first-go/model"
 	"fmt"
 	"net/http"
-
-	"github.com/jinzhu/gorm"
 )
 
-type User struct {
-	gorm.Model
-	Name  string
-	Email string
-}
-
 func AllUsers(w http.ResponseWriter, r *http.Request) {
-	db := InitDb()
+	db := db.InitDb()
 	defer db.Close()
 
-	var users []User
+	var users []model.User
 	db.Find(&users)
 
 	json.NewEncoder(w).Encode(users)
 }
 
 func CreateUser(w http.ResponseWriter, r *http.Request) {
-	db := InitDb()
+	db := db.InitDb()
 	defer db.Close()
 
-	var user User
+	var user model.User
 	json.NewDecoder(r.Body).Decode(&user)
 	db.Create(&user)
 

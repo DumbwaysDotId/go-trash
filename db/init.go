@@ -1,4 +1,4 @@
-package main
+package db
 
 import (
 	"fmt"
@@ -16,10 +16,4 @@ func InitDb() *gorm.DB {
 	}
 
 	return db
-}
-
-func Migrate() {
-	db := InitDb()
-
-	db.AutoMigrate(&User{})
 }
