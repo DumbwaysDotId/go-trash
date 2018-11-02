@@ -2,14 +2,19 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
-	i := 10
-	inc(&i)
-	fmt.Println(i)
+	go timer("push up")
+	go timer("sit up")
+
+	fmt.Scanln()
 }
 
-func inc(x *int) {
-	*x++
+func timer(todo string) {
+	for i := 1; i < 5; i++ {
+		fmt.Println(todo, i)
+		time.Sleep(time.Second)
+	}
 }
