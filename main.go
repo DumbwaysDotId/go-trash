@@ -29,6 +29,9 @@ func handleRequests() {
 func main() {
 	fmt.Println("Go run on port 8081")
 
+	//db operation
+	Migrate()
+
 	//run the func
 	handleRequests()
 }
